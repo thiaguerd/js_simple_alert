@@ -1,0 +1,47 @@
+.ba_shadow {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+
+.ba_modal {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	max-width: 95%;
+}
+
+.ba_modal_content {
+	position: relative;
+	background-color: white;
+	height: 100%;
+	padding: 15px;
+	overflow: hidden;
+}
+
+.ba_modal_title {
+	text-align: center;
+	padding: 10px;
+	font-size: 20px;
+	color: black;
+}
+
+.ba_modal_message {
+	padding: 5px;
+	font-size: 15px;
+	color: black;
+	text-align: center;
+}
+
+.ba_modal_bt {
+	text-align: center;
+	display: inline-block;
+}
+
+.ba_modal_bt button {
+	margin: 5px;
+}
