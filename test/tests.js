@@ -146,12 +146,20 @@ test("test round 3", function(assert) {
 		closeText:w[0]["closeText"],
 		confirmText:w[0]["confirmText"],
 		time:w[0]["time"],
+		closeClass: "cb",
+		confirmClass: "cr",
 		closeOnClickShadow: true
 	});
 
 	equal($('.ba_shadow').length, 1, "one shadow");
 	
 	equal($('.ba_modal').length, 1, "one alert");
+
+	equal($($(".ba_modal .ba_list_bt button")[0]).css("color"), "rgb(0, 0, 255)", "close button css applied");
+	
+	equal($($(".ba_modal .ba_list_bt button")[1]).css("color"), "rgb(255, 0, 0)", "close button css applied");
+
+	equal($($(".ba_modal .ba_list_bt button")[0]).outerWidth(), $($(".ba_modal .ba_list_bt button")[1]).outerWidth(), "buttons with same width");
 
 	equal($($(".ba_modal .ba_list_bt button")[0]).outerWidth(), $($(".ba_modal .ba_list_bt button")[1]).outerWidth(), "buttons with same width");
 
