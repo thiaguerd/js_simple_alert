@@ -45,13 +45,15 @@
 		"""<div id="#{h['shadow'].substring(1)}" class="ba_shadow"></div>"""
 	
 	close_modal = (h) ->
-		$(h['modal']).transition { scale: 0 }, h['closeTime'], h['effectHide']
-		$(h['modal']).animate { opacity: 0 }, h['closeTime'], ->
+		console.log("chamou a porra do modal  h['closeTime']: "+ h['closeTime'])
+		$(h['modal']).transition { scale: 0, opacity: 0 }, h['closeTime'], h['effectHide'], ->
 			$(this).remove()
-		$(h['shadow']).animate { opacity: 0 }, h['closeTime'], ->
+
+		$(h['shadow']).transition { opacity: 0 }, h['closeTime'], ->
 			$(this).remove()
 			if !(h['onClose'] + '').include('ba') or !(h['onConfirm'] + '').include('ba')
 				$('body').css 'overflow', 'auto'
+
 	
 	bt_confirm = (h) ->
 		if h['showConfirmBtn'] then """
@@ -90,12 +92,11 @@
 		r['onConfirm']			= if hash['onConfirm'] != undefined				then hash['onConfirm']			else false
 		r['onClose']			= if hash['onClose'] != undefined				then hash['onClose']			else false
 		r['message']			= if hash['message'] != undefined				then hash['message']			else ''
-		r['openTime']			= if hash['openTime'] != undefined				then hash['openTime']			else 250
-		r['closeTime']			= if hash['closeTime'] != undefined				then hash['closeTime']			else 250
+		r['openTime']			= if hash['openTime'] != undefined				then hash['openTime']			else if hash['time'] then hash['time'] else 250
+		r['closeTime']			= if hash['closeTime'] != undefined				then hash['closeTime']			else if hash['time'] then hash['time'] else 250
 		r['effectShow']			= if hash['effectShow'] != undefined			then hash['effectShow']			else if hash['effect'] then hash['effect'] else 'easeInOutBack'
 		r['effectHide']			= if hash['effectHide'] != undefined			then hash['effectHide']			else if hash['effect'] then hash['effect'] else 'easeInBack'
 		r['closeOnClickShadow']	= if hash['closeOnClickShadow'] != undefined	then hash['closeOnClickShadow']	else false
-		
 		r['id']					= if hash['id'] then hash['id'] else generate_random_id()
 		r['modal']				= '#modal_' + r['id']
 		r['shadow']				= '#shadow_' + r['id']
