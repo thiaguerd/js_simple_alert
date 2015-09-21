@@ -92,8 +92,8 @@
 		r['onConfirm']			= if hash['onConfirm'] != undefined				then hash['onConfirm']			else false
 		r['onClose']			= if hash['onClose'] != undefined				then hash['onClose']			else false
 		r['message']			= if hash['message'] != undefined				then hash['message']			else ''
-		r['openTime']			= if hash['openTime'] != undefined				then hash['openTime']			else if hash['time'] then hash['time'] else 250
-		r['closeTime']			= if hash['closeTime'] != undefined				then hash['closeTime']			else if hash['time'] then hash['time'] else 250
+		r['openTime']			= if hash['time'] != undefined					then hash['time']				else if hash['openTime'] != undefined then hash['openTime'] else 250
+		r['closeTime']			= if hash['time'] != undefined					then hash['time']				else if hash['closeTime'] != undefined then hash['closeTime'] else 250
 		r['effectShow']			= if hash['effectShow'] != undefined			then hash['effectShow']			else if hash['effect'] then hash['effect'] else 'easeInOutBack'
 		r['effectHide']			= if hash['effectHide'] != undefined			then hash['effectHide']			else if hash['effect'] then hash['effect'] else 'easeInBack'
 		r['closeOnClickShadow']	= if hash['closeOnClickShadow'] != undefined	then hash['closeOnClickShadow']	else false

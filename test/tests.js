@@ -20,7 +20,7 @@ test("test round 1", function() {
 
 	equal($('.ba_shadow').length, 1, "showing one shadow");
 
-	equal($('.ba_shadow').css("opacity"), "0.4", "level opacity ok");
+	equal(Math.round($('.ba_shadow').css("opacity") * 10) / 10, 0.4, "level opacity ok");
 	
 	ok($('.ba_modal').is(':visible'), "alert is visible (if u see this alert u is ninja because it should be visible for a few ms)");
 
@@ -83,11 +83,16 @@ test("test round 2", function(assert) {
 
 	setTimeout(function(){
 		// when alert is open completely
-		ok((Math.abs($(window).outerHeight() - (($('.ba_modal').offset().top * 2) + $('.ba_modal').outerHeight()))) <= pixel_torelance, "on center vertical and animation complete");
+		var vp = (Math.abs($(window).outerHeight() - (($('.ba_modal').offset().top * 2) + $('.ba_modal').outerHeight())));
 
-		ok((Math.abs($(window).outerWidth() - (($('.ba_modal').offset().left * 2) + $('.ba_modal').outerWidth()))) <= pixel_torelance, "on center horizontal and animation complete");
+		ok(vp <= pixel_torelance, "on center vertical and animation complete");
+
+		var hp = (Math.abs($(window).outerWidth() - (($('.ba_modal').offset().left * 2) + $('.ba_modal').outerWidth())));
+
+		ok(hp <= pixel_torelance, "on center horizontal and animation complete");
 		
-		equal($('.ba_shadow').css("opacity"), "0.4", "max level opacity ok");
+		
+		equal(Math.round($('.ba_shadow').css("opacity") * 10) / 10, 0.4, "max level opacity ok");
 
 		$('.ba_modal .ba_modal_bt button').click();
 
@@ -140,34 +145,53 @@ test("test round 3", function(assert) {
 		message:w[0]["message"],
 		closeText:w[0]["closeText"],
 		confirmText:w[0]["confirmText"],
-		time:w[0]["time"]
+		time:w[0]["time"],
+		closeOnClickShadow: true
 	});
 
 	equal($('.ba_shadow').length, 1, "one shadow");
 	
 	equal($('.ba_modal').length, 1, "one alert");
 
-	equal($($(".ba_modal .ba_list_bt button")[0]).outerWidth(), $($(".ba_modal .ba_list_bt button")[1]).outerWidth(), "same width");
-
+	equal($($(".ba_modal .ba_list_bt button")[0]).outerWidth(), $($(".ba_modal .ba_list_bt button")[1]).outerWidth(), "buttons with same width");
 
 	ba({
 		title:w[1]["title"],
 		message:w[1]["message"],
 		closeText:w[1]["closeText"],
 		confirmText:w[1]["confirmText"],
-		time:w[1]["time"]
+		time:w[1]["time"],
+		onClose: function(){
+			window.test = "ok";
+		} 
 	});
+
+	equal($('.ba_shadow').length, 2, "two shadow");
+	
+	equal($('.ba_modal').length, 2, "one alert");
+
+	ok((Math.abs($(window).outerHeight() - (($('.ba_modal').offset().top * 2) + $('.ba_modal').outerHeight()))) <= pixel_torelance, "on center vertical and animation complete");
+
+	ok((Math.abs($(window).outerWidth() - (($('.ba_modal').offset().left * 2) + $('.ba_modal').outerWidth()))) <= pixel_torelance, "on center horizontal and animation complete");
+
+	equal($($(".ba_modal:first .ba_list_bt button")[0]).outerWidth(), $($(".ba_modal:first .ba_list_bt button")[1]).outerWidth(), "alert 1: buttons with same width");
+	
+	equal($($(".ba_modal:last .ba_list_bt button")[0]).outerWidth(), $($(".ba_modal:last .ba_list_bt button")[1]).outerWidth(), "alert 2: buttons with same width");
+
+	notEqual(window.test,"ok", "callbacks not run yet");
+
+	$('.ba_shadow').click()
+
+	equal($('.ba_shadow').length, 1, "one shadow - close first alert by shadow click");
+	
+	equal($('.ba_modal').length, 1, "one alert - close first alert by shadow click");
+
+	$('.ba_modal .ba_modal_bt button').click()
+
+	equal($('.ba_shadow').length, 0, "no one shadow");
+	
+	equal($('.ba_modal').length, 0, "no one alert");
+
+	equal(window.test,"ok", "callbacks done");
+
 });
-/*
-"botoes do mesmo tamanho"
-"mensagem"
-"titulo"
-"botao confirma"
-"id unico"
-"multiplas janelas"
-testar tempo de abertura 
-testar tempo de fechamento
-um só tempo pra fechar e abrir
-testar callbacks
-clicar na sombra pra fechar
-*/
