@@ -1,5 +1,44 @@
 @.ba = () ->
-	
+	keys = 
+		37: 1
+		38: 1
+		39: 1
+		40: 1
+
+	preventDefault = (e) ->
+		e = e or window.event
+		if e.preventDefault
+			e.preventDefault()
+		e.returnValue = false
+		return
+
+	preventDefaultForScrollKeys = (e) ->
+		if keys[e.keyCode]
+			preventDefault e
+			return false
+		return
+
+	disableScroll = ->
+		if window.addEventListener
+			window.addEventListener 'DOMMouseScroll', preventDefault, false
+		window.onwheel = preventDefault
+		# modern standard
+		window.onmousewheel = document.onmousewheel = preventDefault
+		# older browsers, IE
+		window.ontouchmove = preventDefault
+		# mobile
+		document.onkeydown = preventDefaultForScrollKeys
+		return
+
+	enableScroll = ->
+		if window.removeEventListener
+			window.removeEventListener 'DOMMouseScroll', preventDefault, false
+		window.onmousewheel = document.onmousewheel = null
+		window.onwheel = null
+		window.ontouchmove = null
+		document.onkeydown = null
+		return
+
 	generate_random_id = ->
 		rr = (Math.random() + '').substring(2)
 		while $('#shadow_' + rr).size() > 0
@@ -54,9 +93,9 @@
 
 	show_shadow = () ->
 		$(h['shadow']).animate { opacity: '0.4' }, h['openTime'], ->
-			$('body').css 'overflow', 'hidden'
+			disableScroll()
 		if h['autoClose']
-			setTimeout((-> close_modal()),h['autoClose']*1000)
+			setTimeout((-> close_modal() if h['autoClose']),h['autoClose']*1000)
 
 	open_modal = () ->
 		$(h['modal']).transition { scale: 0 }, 0
@@ -65,8 +104,6 @@
 	close_btn_bind = () ->
 		$(h['bt_close']).click ->
 			close_modal()
-			if h['onClose']
-				h['onClose']()
 		if h['closeOnClickShadow']
 			$(h['shadow']).click ->
 				close_modal()
@@ -93,14 +130,16 @@
 	shadow = () ->
 		"""<div id="#{h['shadow'].substring(1)}" class="ba_shadow"></div>"""
 	
-	close_modal = () ->
+	close_modal = (confirm=false) ->
+		h['autoClose'] = false
+		h['onClose']() if h['onClose'] && !confirm
 		$(h['modal']).transition { scale: 0, opacity: 0 }, h['closeTime'], h['effectHide'], ->
 			$(this).remove()
 
 		$(h['shadow']).transition { opacity: 0 }, h['closeTime'], ->
 			$(this).remove()
 			if !(h['onClose'] + '').include('ba') or !(h['onConfirm'] + '').include('ba')
-				$('body').css 'overflow', 'auto'
+				enableScroll()
 
 	
 	bt_confirm = () ->
@@ -128,7 +167,7 @@
 	modal += '</div></div>'
 	$('body').append shadow()
 	$('body').append modal
-	$('body').css 'overflow', 'hidden'
+	disableScroll()
 	resize_btns()
 	show_shadow()
 	open_modal()
@@ -137,7 +176,7 @@
 		$(h['bt_close']).addClass 'btfr'
 		$(h['bt_confirm']).addClass 'btfl'
 		$(h['bt_confirm']).click ->
-			close_modal()
+			close_modal(true)
 			if h['onConfirm']
 				h['onConfirm']()
 	else
@@ -145,4 +184,3 @@
 	center()
 	$(window).resize ->
 		center()
-	return

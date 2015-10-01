@@ -68,6 +68,16 @@ ba({
 });</pre>
 <p><input type="button" value="run example 7" onclick='ba({message: "This messsage close in 1.5 seconds",autoClose: 1.5})'/></p>
 
+<h2>example 8</h2><p>Auto close and on close</p>
+<pre class="prettyprint lang-javascript">ba({
+  message: "This messsage close in 1.5 seconds",
+  autoClose: 1.5,
+  onClose: function(){
+    ba("Your post is safe :)")
+  }
+});</pre>
+<p><input type="button" value="run example 8" onclick='ba({message: "This messsage close in 1.5 seconds",autoClose: 1.5,onClose:function(){ba("Your post is safe :)")}})'/></p>
+
 
 <style type="text/css">
 .btn_red{
