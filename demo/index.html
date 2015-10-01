@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>QUnit Example</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="../dist/css/ba.css"></link>
+  <script type="text/javascript" src="../lib/core/string.js"></script>
+  <script type="text/javascript" src="../lib/event_resize/ElementQueries.js"></script>
+  <script type="text/javascript" src="../lib/event_resize/ResizeSensor.js"></script>
+  <script type="text/javascript" src="../lib/transit/transit.js"></script>
+  <script type="text/javascript" src="../dist/js/ba.js"></script>
+</head>
+<body>
+<h2>example 1</h2><p>Call alert</p>
+<pre class="prettyprint lang-javascript">ba("This is a message!")</pre>
+<p><input type="button" value="run example 1" onclick='ba("This is a message!")' /></p>
+<h2>example 2</h2><p>Call alert with title and message</p>
+<pre class="prettyprint lang-javascript">ba("Hello!","This is a message!")</pre>
+<p><input type="button" value="run example 2" onclick='ba("Hello!","This is a message!")' /></p>
+<h2>example 3</h2><p>Callbacks functions</p>
+<pre class="prettyprint lang-javascript">ba({
+	title: "You are sure?",
+	message: "You want delete this post?",
+	onConfirm: function(){
+		ba("Your post has been deleted.")
+	},
+	onClose: function(){
+		ba("Your post is safe :)")
+	}
+})</pre>
+<p><input type="button" value="run example 3" onclick='ba({title: "You are sure?",message: "You want delete this post?",onConfirm: function(){ba("Your post has been deleted.")},onClose: function(){ba("Your post is safe :)")}})' /></p>
+<h2>example 4</h2><p>Add class to butons</p>
+<pre class="prettyprint lang-css">.btn_blue{
+    background-color:blue;
+}
+.btn_red{
+    background-color:red;
+}</pre>
+<pre class="prettyprint lang-javascript">
+ba({
+	message: "Adding css class to butons",
+	closeClass: "btn_blue",
+	confirmClass: "btn_red"
+})
+</pre>
+<p><input type="button" value="run example 4" onclick='ba({message: "Adding css class to butons",closeClass: "btn_blue",confirmClass: "btn_red"})'/></p>
+<h2>example 5</h2><p>Change text from buttons</p>
+<pre class="prettyprint lang-javascript">
+ba({
+	message: "Custom text",
+	confirmText: "don't confirm that!",
+	closeText: "close is safe"
+})
+</pre>
+<p><input type="button" value="run example 5" onclick='ba({message: "Custom text",confirmText: "don&#8216;t confirm that!",closeText: "close is safe"})'/></p>
+<h2>example 6</h2><p>Click on shadow to close alert</p>
+<pre class="prettyprint lang-javascript">ba({
+	message: "Click on shadow to close",
+	closeOnClickShadow: true
+});</pre>
+<p><input type="button" value="run example 6" onclick='ba({message: "Click on shadow to close",closeOnClickShadow: true})'/></p>
+
+<h2>example 7</h2><p>Auto close</p>
+<pre class="prettyprint lang-javascript">ba({
+  message: "This messsage close in 1.5 seconds",
+  autoClose: 1.5
+});</pre>
+<p><input type="button" value="run example 7" onclick='ba({message: "This messsage close in 1.5 seconds",autoClose: 1.5})'/></p>
+
+
+<style type="text/css">
+.btn_red{
+    background-color:red;
+}
+.btn_blue{
+    background-color:blue;
+}
+</style>
+
+</body>
+</html>
