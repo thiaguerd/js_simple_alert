@@ -12,81 +12,144 @@
   <script type="text/javascript" src="../dist/js/ba.js"></script>
 </head>
 <body>
-<h2>example 1</h2><p>Call alert</p>
-<pre class="prettyprint lang-javascript">ba("This is a message!")</pre>
-<p><input type="button" value="run example 1" onclick='ba("This is a message!")' /></p>
-<h2>example 2</h2><p>Call alert with title and message</p>
-<pre class="prettyprint lang-javascript">ba("Hello!","This is a message!")</pre>
-<p><input type="button" value="run example 2" onclick='ba("Hello!","This is a message!")' /></p>
-<h2>example 3</h2><p>Callbacks functions</p>
-<pre class="prettyprint lang-javascript">ba({
-	title: "You are sure?",
-	message: "You want delete this post?",
-	onConfirm: function(){
-		ba("Your post has been deleted.")
-	},
-	onClose: function(){
-		ba("Your post is safe :)")
-	}
-})</pre>
-<p><input type="button" value="run example 3" onclick='ba({title: "You are sure?",message: "You want delete this post?",onConfirm: function(){ba("Your post has been deleted.")},onClose: function(){ba("Your post is safe :)")}})' /></p>
-<h2>example 4</h2><p>Add class to butons</p>
-<pre class="prettyprint lang-css">.btn_blue{
-    background-color:blue;
-}
-.btn_red{
-    background-color:red;
-}</pre>
-<pre class="prettyprint lang-javascript">
-ba({
-	message: "Adding css class to butons",
-	closeClass: "btn_blue",
-	confirmClass: "btn_red"
-})
-</pre>
-<p><input type="button" value="run example 4" onclick='ba({message: "Adding css class to butons",closeClass: "btn_blue",confirmClass: "btn_red"})'/></p>
-<h2>example 5</h2><p>Change text from buttons</p>
-<pre class="prettyprint lang-javascript">
-ba({
-	message: "Custom text",
-	confirmText: "don't confirm that!",
-	closeText: "close is safe"
-})
-</pre>
-<p><input type="button" value="run example 5" onclick='ba({message: "Custom text",confirmText: "don&#8216;t confirm that!",closeText: "close is safe"})'/></p>
-<h2>example 6</h2><p>Click on shadow to close alert</p>
-<pre class="prettyprint lang-javascript">ba({
-	message: "Click on shadow to close",
-	closeOnClickShadow: true
-});</pre>
-<p><input type="button" value="run example 6" onclick='ba({message: "Click on shadow to close",closeOnClickShadow: true})'/></p>
+<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/assets/css-element-queries/ElementQueries.js"></script>
+<script type="text/javascript" src="http://localhost:3000/assets/css-element-queries/ResizeSensor.js"></script>
+<script type="text/javascript">if (!String.prototype.include) {String.prototype.include = function() {'use strict';return String.prototype.indexOf.apply(this, arguments) !== -1;};}</script>
+<script type="text/javascript" src="http://localhost:3000/assets/transit/transit.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/assets/simple_alert/ba.js"></script>
+<script type="text/javascript" src="http://localhost:3000/assets/topzindex/jquery.topzindex.js"></script>
 
-<h2>example 7</h2><p>Auto close</p>
-<pre class="prettyprint lang-javascript">ba({
-  message: "This messsage close in 1.5 seconds",
-  autoClose: 1.5
-});</pre>
+<link rel="stylesheet" type="text/css" href="http://localhost:3000/assets/simple_alert/ba.css"> -->
+<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/assets/css-element-queries/ElementQueries.js"></script>
+<script type="text/javascript" src="http://localhost:3000/assets/css-element-queries/ResizeSensor.js"></script>
+<script type="text/javascript">if (!String.prototype.include) {String.prototype.include = function() {'use strict';return String.prototype.indexOf.apply(this, arguments) !== -1;};}</script>
+<script type="text/javascript" src="http://localhost:3000/assets/transit/transit.min.js"></script>
+<script type="text/javascript" src="http://localhost:3000/assets/simple_alert/ba.js"></script>
+<script type="text/javascript" src="http://localhost:3000/assets/topzindex/jquery.topzindex.js"></script> -->
+
+<link rel="stylesheet" type="text/css" href="http://localhost:3000/assets/simple_alert/ba.css">
+ <p>Try this</p>
+ <div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1</pre></td><td><pre style="margin: 0; line-height: 125%">ba(<span style="color: #CD5555">&quot;hello world!&quot;</span>)</pre></td></tr></table></div>
+ <p><input type="button" value="try this" onclick='ba("hello world!")' /></p>
+ <!--more--><!--noteaser-->
+ <p>this example using <a href="http://ricostacruz.com/jquery.transit/" target="_blank">transit</a> and <a href="https://github.com/marcj/css-element-queries" target="_blank">element-queries</a> and another thing</p>
+ <h2>example 1</h2><p>Call alert</p>
+ <div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1</pre></td><td><pre style="margin: 0; line-height: 125%">ba(<span style="color: #CD5555">&quot;This is a message!&quot;</span>)</pre></td></tr></table></div>
+ <p><input type="button" value="run example 1" onclick='ba("This is a message!")' /></p>
+ <h2>example 2</h2><p>Call alert with title and message</p>
+ <div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1</pre></td><td><pre style="margin: 0; line-height: 125%">ba(<span style="color: #CD5555">&quot;Hello!&quot;</span>,<span style="color: #CD5555">&quot;This is a message!&quot;</span>)</pre></td></tr></table></div>
+ <p><input type="button" value="run example 2" onclick='ba("Hello!","This is a message!")' /></p>
+ <h2>example 3</h2><p>Callbacks functions</p>
+ <div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></td><td><pre style="margin: 0; line-height: 125%">ba({
+    title: <span style="color: #CD5555">&quot;You are sure?&quot;</span>,
+    message: <span style="color: #CD5555">&quot;You want delete this post?&quot;</span>,
+    onConfirm: <span style="color: #8B008B; font-weight: bold">function</span>(){
+        ba(<span style="color: #CD5555">&quot;Your post has been deleted.&quot;</span>)
+    },
+    onClose: <span style="color: #8B008B; font-weight: bold">function</span>(){
+        ba(<span style="color: #CD5555">&quot;Your post is safe :)&quot;</span>)
+    }
+})</pre></td></tr></table></div>
+
+
+ <p><input type="button" value="run example 3" onclick='ba({title: "You are sure?",message: "You want delete this post?",onConfirm: function(){ba("Your post has been deleted.")},onClose: function(){ba("Your post is safe :)")}})' /></p>
+ <h2>example 4</h2><p>Add class to butons</p>
+ <div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6</pre></td><td><pre style="margin: 0; line-height: 125%"><span style="color: #008b45; font-weight: bold">.btn_blue</span>{
+    <span style="color: #8B008B; font-weight: bold">background-color</span>:<span style="color: #658b00">blue</span>;
+}
+<span style="color: #008b45; font-weight: bold">.btn_red</span>{
+    <span style="color: #8B008B; font-weight: bold">background-color</span>:<span style="color: #658b00">red</span>;
+}</pre></td></tr></table></div>
+<br/>
+<div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%">ba({
+    message: <span style="color: #CD5555">&quot;Adding css class to butons&quot;</span>,
+    closeClass: <span style="color: #CD5555">&quot;btn_blue&quot;</span>,
+    confirmClass: <span style="color: #CD5555">&quot;btn_red&quot;</span>
+})</pre></td></tr></table></div>
+ <p><input type="button" value="run example 4" onclick='ba({message: "Adding css class to butons",closeClass: "btn_blue",confirmClass: "btn_red"})'/></p>
+ <h2>example 5</h2><p>Change text from buttons</p>
+ <div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5</pre></td><td><pre style="margin: 0; line-height: 125%">ba({
+    message: <span style="color: #CD5555">&quot;Custom text&quot;</span>,
+    confirmText: <span style="color: #CD5555">&quot;don&#39;t confirm that!&quot;</span>,
+    closeText: <span style="color: #CD5555">&quot;close is safe&quot;</span>
+})</pre></td></tr></table></div>
+
+ <p><input type="button" value="run example 5" onclick='ba({message: "Custom text",confirmText: "don&#8216;t confirm that!",closeText: "close is safe"})'/></p>
+ <h2>example 6</h2><p>Click on shadow to close alert</p>
+<div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4</pre></td><td><pre style="margin: 0; line-height: 125%">ba({
+    message: <span style="color: #CD5555">&quot;Click on shadow to close&quot;</span>,
+    closeOnClickShadow: <span style="color: #8B008B; font-weight: bold">true</span>
+})</pre></td></tr></table></div>
+
+
+ <p><input type="button" value="run example 6" onclick='ba({message: "Click on shadow to close",closeOnClickShadow: true})'/></p>
+ <h2>example 7</h2><p>Auto close</p>
+<div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4</pre></td><td><pre style="margin: 0; line-height: 125%">ba({
+    message: <span style="color: #CD5555">&quot;This messsage close in 1.5 seconds&quot;</span>,
+    autoClose: <span style="color: #B452CD">1.5</span>
+})</pre></td></tr></table></div>
+
+
 <p><input type="button" value="run example 7" onclick='ba({message: "This messsage close in 1.5 seconds",autoClose: 1.5})'/></p>
 
 <h2>example 8</h2><p>Auto close and on close</p>
-<pre class="prettyprint lang-javascript">ba({
-  message: "This messsage close in 1.5 seconds",
-  autoClose: 1.5,
-  onClose: function(){
-    ba("Your post is safe :)")
-  }
-});</pre>
+<div style="background: #eeeedd; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%">1
+2
+3
+4
+5
+6
+7</pre></td><td><pre style="margin: 0; line-height: 125%">ba({
+    message: <span style="color: #CD5555">&quot;This messsage close in 1.5 seconds&quot;</span>,
+    autoClose: <span style="color: #B452CD">1.5</span>,
+    onClose: <span style="color: #8B008B; font-weight: bold">function</span>(){
+        ba(<span style="color: #CD5555">&quot;Your post is safe :)&quot;</span>)
+    }
+})</pre></td></tr></table></div>
+
 <p><input type="button" value="run example 8" onclick='ba({message: "This messsage close in 1.5 seconds",autoClose: 1.5,onClose:function(){ba("Your post is safe :)")}})'/></p>
-
-
-<style type="text/css">
-.btn_red{
-    background-color:red;
-}
-.btn_blue{
-    background-color:blue;
-}
-</style>
+ 
+ <!-- <p>Individual downloads: <a href="/download.php?f=ba.js">ba.js</a> <a href="/download.php?f=ba.css">ba.css</a> <a href="/download.php?f=eq.js">ElementQueries.js</a> <a href="/download.php?f=rs.js">ResizeSensor.js</a> <a href="/download.php?f=trst.js">transitions.js</a></p> -->
+ <!-- <p>Download all <a href="/download.php?f=ba.zip">where</a></p> -->
+ <style type="text/css">
+ .btn_red{
+     background-color:red;
+ }
+ .btn_blue{
+     background-color:blue;
+ }
+ </style>
+ 
 
 </body>
 </html>
