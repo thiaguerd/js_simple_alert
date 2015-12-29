@@ -1,2 +1,11 @@
 v 1.0.3
   - change button to input type button
+v 1.0.2
+  - bug onClose and autoClose fix
+  - add more 1 example on demo
+v 1.0.1
+  - add auto close
+  - add demo page
+  - update the source
+v 1.0.0
+  - initial commit
