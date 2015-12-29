@@ -4,6 +4,13 @@ simple alert js
 
 [demo](https://blog.thiago.pro/simple-alert)
 
+Dependencies
+------------
+- [js string include](https://blog.thiago.pro/js-string-include)
+- [element queries](https://github.com/marcj/css-element-queries)
+- [transit](http://ricostacruz.com/jquery.transit/)
+- [topzindex](https://code.google.com/p/topzindex/)
+
 Instalation
 -----------
 
@@ -15,6 +22,7 @@ Instalation
 <script type="text/javascript" src="lib/event_resize/ResizeSensor.js"></script>
 <script type="text/javascript" src="lib/transit/transit.js"></script>
 <script type="text/javascript" src="dist/js/ba.js"></script>
+<script type="text/javascript" src="../lib/top_z_index/topZIndex.min.js"></script>
 ```
 
 Examples

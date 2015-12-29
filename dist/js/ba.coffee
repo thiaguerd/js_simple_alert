@@ -62,7 +62,7 @@
 		r['showConfirmBtn']		= if hash['showConfirmBtn'] != undefined		then true						else if (hash['onConfirm'] != undefined) || (hash['confirmClass'] != undefined || hash['confirmText'] != undefined) then true else false
 		r['showCloseBtn']		= if hash['showCloseBtn'] != undefined			then true 						else false
 		r['confirmText']		= if hash['confirmText'] != undefined			then hash['confirmText']		else 'Confirm'
-		r['confirmClass']		= if hash['confirmClass'] != undefined			then hash['confirmClass']		else 'btn btn-success'
+		r['confirmClass']		= if hash['confirmClass'] != undefined			then hash['confirmClass']		else ''
 		r['closeText']			= if hash['closeText'] != undefined				then hash['closeText']			else 'Close'
 		r['closeClass']			= if hash['closeClass'] != undefined			then hash['closeClass']			else ''
 		r['onConfirm']			= if hash['onConfirm'] != undefined				then hash['onConfirm']			else false
@@ -145,14 +145,15 @@
 	bt_confirm = () ->
 		if h['showConfirmBtn'] then """
 			<div id="#{h['div_bt_confirm'].substring(1)}" class="ba_modal_bt">
-				<input type="button" id="#{h['bt_confirm'].substring(1)}" class="#{h['confirmClass']}" value="#{h['confirmText']}"></input>
+				<input type="button" id="#{h['bt_confirm'].substring(1)}" """ + (if h['confirmClass'] then """ class="#{h['confirmClass']}" """ else '' ) + """value="#{h['confirmText']}"></input>
+
 			</div>
 		""" else ''
 	
 	bt_close = () ->
 		"""
 			<div id="#{h['div_bt_close'].substring(1)}" class="ba_modal_bt">
-				<input type="button" id="#{h['bt_close'].substring(1)}" class="#{h['closeClass']}" value="#{h['closeText']}"></input>
+				<input type="button" id="#{h['bt_close'].substring(1)}" """ + (if h['closeClass'] then """ class="#{h['closeClass']}" """ else '') + """value="#{h['closeText']}"></input>
 			</div>
 		"""
 	
@@ -173,8 +174,6 @@
 	open_modal()
 	close_btn_bind()
 	if h['showConfirmBtn']
-		$(h['bt_close']).addClass 'btfr'
-		$(h['bt_confirm']).addClass 'btfl'
 		$(h['bt_confirm']).click ->
 			close_modal(true)
 			if h['onConfirm']

@@ -68,7 +68,7 @@
       r['showConfirmBtn'] = hash['showConfirmBtn'] !== void 0 ? true : (hash['onConfirm'] !== void 0) || (hash['confirmClass'] !== void 0 || hash['confirmText'] !== void 0) ? true : false;
       r['showCloseBtn'] = hash['showCloseBtn'] !== void 0 ? true : false;
       r['confirmText'] = hash['confirmText'] !== void 0 ? hash['confirmText'] : 'Confirm';
-      r['confirmClass'] = hash['confirmClass'] !== void 0 ? hash['confirmClass'] : 'btn btn-success';
+      r['confirmClass'] = hash['confirmClass'] !== void 0 ? hash['confirmClass'] : '';
       r['closeText'] = hash['closeText'] !== void 0 ? hash['closeText'] : 'Close';
       r['closeClass'] = hash['closeClass'] !== void 0 ? hash['closeClass'] : '';
       r['onConfirm'] = hash['onConfirm'] !== void 0 ? hash['onConfirm'] : false;
@@ -187,13 +187,13 @@
     };
     bt_confirm = function() {
       if (h['showConfirmBtn']) {
-        return "<div id=\"" + (h['div_bt_confirm'].substring(1)) + "\" class=\"ba_modal_bt\">\n	<input type=\"button\" id=\"" + (h['bt_confirm'].substring(1)) + "\" class=\"" + h['confirmClass'] + "\" value=\"" + h['confirmText'] + "\"></input>\n</div>";
+        return ("<div id=\"" + (h['div_bt_confirm'].substring(1)) + "\" class=\"ba_modal_bt\">\n	<input type=\"button\" id=\"" + (h['bt_confirm'].substring(1)) + "\" ") + (h['confirmClass'] ? " class=\"" + h['confirmClass'] + "\" " : '') + ("value=\"" + h['confirmText'] + "\"></input>\n\n</div>");
       } else {
         return '';
       }
     };
     bt_close = function() {
-      return "<div id=\"" + (h['div_bt_close'].substring(1)) + "\" class=\"ba_modal_bt\">\n	<input type=\"button\" id=\"" + (h['bt_close'].substring(1)) + "\" class=\"" + h['closeClass'] + "\" value=\"" + h['closeText'] + "\"></input>\n</div>";
+      return ("<div id=\"" + (h['div_bt_close'].substring(1)) + "\" class=\"ba_modal_bt\">\n	<input type=\"button\" id=\"" + (h['bt_close'].substring(1)) + "\" ") + (h['closeClass'] ? " class=\"" + h['closeClass'] + "\" " : '') + ("value=\"" + h['closeText'] + "\"></input>\n</div>");
     };
     modal = gen_modal();
     modal += gen_title();
@@ -211,8 +211,6 @@
     open_modal();
     close_btn_bind();
     if (h['showConfirmBtn']) {
-      $(h['bt_close']).addClass('btfr');
-      $(h['bt_confirm']).addClass('btfl');
       $(h['bt_confirm']).click(function() {
         close_modal(true);
         if (h['onConfirm']) {
