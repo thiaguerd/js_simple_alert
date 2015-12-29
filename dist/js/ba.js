@@ -187,13 +187,13 @@
     };
     bt_confirm = function() {
       if (h['showConfirmBtn']) {
-        return "<div id=\"" + (h['div_bt_confirm'].substring(1)) + "\" class=\"ba_modal_bt\">\n	<button id=\"" + (h['bt_confirm'].substring(1)) + "\" class=\"" + h['confirmClass'] + "\">" + h['confirmText'] + "</button>\n</div>";
+        return "<div id=\"" + (h['div_bt_confirm'].substring(1)) + "\" class=\"ba_modal_bt\">\n	<input type=\"button\" id=\"" + (h['bt_confirm'].substring(1)) + "\" class=\"" + h['confirmClass'] + "\" value=\"" + h['confirmText'] + "\"></input>\n</div>";
       } else {
         return '';
       }
     };
     bt_close = function() {
-      return "<div id=\"" + (h['div_bt_close'].substring(1)) + "\" class=\"ba_modal_bt\">\n	<button id=\"" + (h['bt_close'].substring(1)) + "\" class=\"" + h['closeClass'] + "\">" + h['closeText'] + "</button>\n</div>";
+      return "<div id=\"" + (h['div_bt_close'].substring(1)) + "\" class=\"ba_modal_bt\">\n	<input type=\"button\" id=\"" + (h['bt_close'].substring(1)) + "\" class=\"" + h['closeClass'] + "\" value=\"" + h['closeText'] + "\"></input>\n</div>";
     };
     modal = gen_modal();
     modal += gen_title();

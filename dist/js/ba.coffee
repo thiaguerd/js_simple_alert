@@ -145,14 +145,14 @@
 	bt_confirm = () ->
 		if h['showConfirmBtn'] then """
 			<div id="#{h['div_bt_confirm'].substring(1)}" class="ba_modal_bt">
-				<button id="#{h['bt_confirm'].substring(1)}" class="#{h['confirmClass']}">#{h['confirmText']}</button>
+				<input type="button" id="#{h['bt_confirm'].substring(1)}" class="#{h['confirmClass']}" value="#{h['confirmText']}"></input>
 			</div>
 		""" else ''
 	
 	bt_close = () ->
 		"""
 			<div id="#{h['div_bt_close'].substring(1)}" class="ba_modal_bt">
-				<button id="#{h['bt_close'].substring(1)}" class="#{h['closeClass']}">#{h['closeText']}</button>
+				<input type="button" id="#{h['bt_close'].substring(1)}" class="#{h['closeClass']}" value="#{h['closeText']}"></input>
 			</div>
 		"""
 	
