@@ -2,11 +2,11 @@
 
 simple alert js
 
-[demo](https://blog.thiago.pro/simple-alert)
+[demo](https://dev.thiago.pro/simple-alert)
 
 Dependencies
 ------------
-- [js string include](https://blog.thiago.pro/js-string-include)
+- [js string include](https://dev.thiago.pro/js-string-include)
 - [element queries](https://github.com/marcj/css-element-queries)
 - [transit](http://ricostacruz.com/jquery.transit/)
 - [topzindex](https://code.google.com/p/topzindex/)
