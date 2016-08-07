@@ -80,3 +80,10 @@ ba({
 	closeOnClickShadow: true
 })
 ```
+
+Set default class to close and confirm buttons
+
+```javascript
+SimpleAlert.bt_confirm_class = "btn btn-success"
+SimpleAlert.bt_close_class   = "btn btn-default"
+```

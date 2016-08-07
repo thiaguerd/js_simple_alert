@@ -1,3 +1,8 @@
+@.SimpleAlert = {
+	bt_close_class:   ""
+	bt_confirm_class: ""
+}
+
 @.ba = () ->
 	keys = 
 		37: 1
@@ -62,9 +67,9 @@
 		r['showConfirmBtn']		= if hash['showConfirmBtn'] != undefined		then true						else if (hash['onConfirm'] != undefined) || (hash['confirmClass'] != undefined || hash['confirmText'] != undefined) then true else false
 		r['showCloseBtn']		= if hash['showCloseBtn'] != undefined			then true 						else false
 		r['confirmText']		= if hash['confirmText'] != undefined			then hash['confirmText']		else 'Confirm'
-		r['confirmClass']		= if hash['confirmClass'] != undefined			then hash['confirmClass']		else ''
+		r['confirmClass']		= if hash['confirmClass'] != undefined			then hash['confirmClass']		else SimpleAlert.bt_confirm_class
 		r['closeText']			= if hash['closeText'] != undefined				then hash['closeText']			else 'Close'
-		r['closeClass']			= if hash['closeClass'] != undefined			then hash['closeClass']			else ''
+		r['closeClass']			= if hash['closeClass'] != undefined			then hash['closeClass']			else SimpleAlert.bt_close_class
 		r['onConfirm']			= if hash['onConfirm'] != undefined				then hash['onConfirm']			else false
 		r['onClose']			= if hash['onClose'] != undefined				then hash['onClose']			else false
 		r['message']			= if hash['message'] != undefined				then hash['message']			else ''
@@ -162,8 +167,8 @@
 	modal += gen_title()
 	modal += gen_message()
 	modal += '<div class="ba_list_bt" >'
-	modal += bt_close()
 	modal += bt_confirm()
+	modal += bt_close()
 	modal += '</div>'
 	modal += '</div></div>'
 	$('body').append shadow()
