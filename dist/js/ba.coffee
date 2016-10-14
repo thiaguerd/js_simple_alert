@@ -4,6 +4,7 @@
 }
 
 @.ba = () ->
+	index = $.topZIndex()
 	keys = 
 		37: 1
 		38: 1
@@ -97,12 +98,14 @@
 		$(h['modal']).css 'left', '50%'
 
 	show_shadow = () ->
+		$(h['shadow']).css 'zIndex', index + 1
 		$(h['shadow']).animate { opacity: '0.4' }, h['openTime'], ->
 			disableScroll()
 		if h['autoClose']
 			setTimeout((-> close_modal() if h['autoClose']),h['autoClose']*1000)
 
 	open_modal = () ->
+		$(h['modal']).css 'zIndex', index + 2
 		$(h['modal']).transition { scale: 0 }, 0
 		$(h['modal']).transition { scale: 1 }, h['openTime'], h['effectShow']
 

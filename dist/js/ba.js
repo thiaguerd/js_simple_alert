@@ -6,7 +6,8 @@
   };
 
   this.ba = function() {
-    var bt_close, bt_confirm, center, close_btn_bind, close_modal, disableScroll, enableScroll, gen_message, gen_modal, gen_title, generate_random_id, h, keys, modal, open_modal, preventDefault, preventDefaultForScrollKeys, process_hash, resize_btns, shadow, show_shadow;
+    var bt_close, bt_confirm, center, close_btn_bind, close_modal, disableScroll, enableScroll, gen_message, gen_modal, gen_title, generate_random_id, h, index, keys, modal, open_modal, preventDefault, preventDefaultForScrollKeys, process_hash, resize_btns, shadow, show_shadow;
+    index = $.topZIndex();
     keys = {
       37: 1,
       38: 1,
@@ -102,6 +103,7 @@
       return $(h['modal']).css('left', '50%');
     };
     show_shadow = function() {
+      $(h['shadow']).css('zIndex', index + 1);
       $(h['shadow']).animate({
         opacity: '0.4'
       }, h['openTime'], function() {
@@ -116,6 +118,7 @@
       }
     };
     open_modal = function() {
+      $(h['modal']).css('zIndex', index + 2);
       $(h['modal']).transition({
         scale: 0
       }, 0);
