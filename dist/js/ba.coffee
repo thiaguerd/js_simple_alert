@@ -146,8 +146,8 @@
 
 		$(h['shadow']).transition { opacity: 0 }, h['closeTime'], ->
 			$(this).remove()
-			if !(h['onClose'] + '').include('ba') or !(h['onConfirm'] + '').include('ba')
-				enableScroll()
+		
+		enableScroll()
 
 	
 	bt_confirm = () ->

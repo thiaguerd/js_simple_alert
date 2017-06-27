@@ -184,14 +184,12 @@
       }, h['closeTime'], h['effectHide'], function() {
         return $(this).remove();
       });
-      return $(h['shadow']).transition({
+      $(h['shadow']).transition({
         opacity: 0
       }, h['closeTime'], function() {
-        $(this).remove();
-        if (!(h['onClose'] + '').include('ba') || !(h['onConfirm'] + '').include('ba')) {
-          return enableScroll();
-        }
+        return $(this).remove();
       });
+      return enableScroll();
     };
     bt_confirm = function() {
       if (h['showConfirmBtn']) {
