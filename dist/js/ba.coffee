@@ -108,6 +108,7 @@
 		$(h['modal']).css 'zIndex', index + 2
 		$(h['modal']).transition { scale: 0 }, 0
 		$(h['modal']).transition { scale: 1 }, h['openTime'], h['effectShow']
+		$(h['modal']).find("input:first").focus()
 
 	close_btn_bind = () ->
 		$(h['bt_close']).click ->
