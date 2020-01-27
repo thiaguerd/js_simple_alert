@@ -2,7 +2,7 @@
 
 simple alert js
 
-[demo](https://dev.thiago.pro/simple-alert)
+[demo](https://dev.thiago.pro/posts/2)
 
 Dependencies
 ------------
